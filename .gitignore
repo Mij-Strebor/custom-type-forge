@@ -1,0 +1,36 @@
+# WordPress
+.htaccess
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer
+/vendor/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Plugin Specific
+/reports/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~

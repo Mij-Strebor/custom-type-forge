@@ -1,0 +1,604 @@
+/**
+ * Custom Type Forge - Admin Styles
+ * Following JimRForge UI/UX Standards v1.2.5
+ *
+ * @package CustomTypeForge
+ */
+
+/* ===========================
+   CSS Custom Properties (Variables)
+   =========================== */
+:root {
+    /* Primary Browns */
+    --clr-primary: #3d2f1f;
+    --clr-secondary: #6d4c2f;
+    --clr-tertiary: #86400E;
+
+    /* Gold Accent */
+    --clr-accent: #f4c542;
+    --clr-btn-hover: #dda824;
+
+    /* Backgrounds */
+    --clr-page-bg: #faf6f0;
+    --clr-card-bg: #ffffff;
+    --clr-light: #faf9f6;
+    --clr-white: #fff;
+
+    /* Text Colors */
+    --clr-txt: #6d4c2f;
+    --clr-txt-light: #faf9f6;
+    --clr-txt-muted: #64748b;
+
+    /* Links */
+    --clr-link: #ce6565;
+    --clr-link-hover: #b54545;
+
+    /* Borders & Shadows */
+    --clr-border: #c9b89a;
+    --clr-shadow-sm: 0 1px 2px rgba(61, 47, 31, 0.08);
+    --clr-shadow-md: 0 4px 6px rgba(61, 47, 31, 0.12);
+    --clr-shadow-lg: 0 10px 20px rgba(61, 47, 31, 0.15);
+    --clr-shadow-xl: 0 20px 30px rgba(61, 47, 31, 0.18);
+
+    /* Status Colors */
+    --clr-success: #059669;
+    --clr-success-bg: #ecfdf5;
+    --clr-error: #dc2626;
+    --clr-error-bg: #fee2e2;
+    --clr-warning: #f59e0b;
+    --clr-warning-bg: #fef3c7;
+    --clr-info: #3b82f6;
+    --clr-info-bg: #dbeafe;
+
+    /* Spacing */
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 20px;
+    --sp-6: 24px;
+    --sp-8: 32px;
+    --sp-9: 36px;
+
+    /* Typography */
+    --fs-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Border Radius */
+    --rad-border-radius: 8px;
+
+    /* Transitions */
+    --jimr-transition-fast: all 0.15s ease;
+    --jimr-transition-normal: all 0.25s ease;
+    --jimr-transition-slow: all 0.35s ease;
+}
+
+/* ===========================
+   Global Overrides
+   =========================== */
+.ctf-admin-page * {
+    font-family: var(--fs-body) !important;
+}
+
+/* ===========================
+   Page Layout
+   =========================== */
+.ctf-admin-page {
+    background: var(--clr-page-bg);
+    margin: 0 0 0 -20px;
+    padding: 20px;
+}
+
+.ctf-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.ctf-page-title {
+    color: var(--clr-primary);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.ctf-page-subtitle {
+    color: var(--clr-secondary);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* ===========================
+   Panels
+   =========================== */
+.ctf-panel {
+    background: var(--clr-white);
+    border-radius: var(--rad-border-radius);
+    padding: var(--sp-9);
+    margin-bottom: var(--sp-6);
+    box-shadow: var(--clr-shadow-md);
+}
+
+.ctf-panel h2 {
+    color: var(--clr-primary);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--clr-accent);
+}
+
+.ctf-panel h3 {
+    color: var(--clr-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+
+/* ===========================
+   Buttons (JimRForge Standard)
+   =========================== */
+.ctf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--clr-accent);
+    color: var(--clr-primary);
+    border: none;
+    border-radius: var(--rad-border-radius);
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--clr-shadow-md);
+    transition: var(--jimr-transition-normal);
+}
+
+.ctf-btn:hover {
+    background: var(--clr-btn-hover);
+    color: var(--clr-primary);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--clr-shadow-lg);
+}
+
+.ctf-btn:active {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--clr-shadow-md);
+}
+
+.ctf-btn:disabled {
+    background: #9e9e9e;
+    color: #fafafa;
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.ctf-btn .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Secondary Button */
+.ctf-btn-secondary {
+    background: var(--clr-txt-muted);
+    color: var(--clr-white) !important;
+}
+
+.ctf-btn-secondary:hover {
+    background: #475569;
+    color: var(--clr-white) !important;
+}
+
+/* Button Group */
+.ctf-btn-group {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   Stats Cards
+   =========================== */
+.ctf-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-6);
+}
+
+.ctf-stat-card {
+    background: var(--clr-light);
+    padding: var(--sp-5);
+    border-radius: var(--rad-border-radius);
+    border-left: 4px solid var(--clr-accent);
+    box-shadow: var(--clr-shadow-sm);
+    transition: var(--jimr-transition-fast);
+}
+
+.ctf-stat-card:hover {
+    box-shadow: var(--clr-shadow-md);
+    transform: translateY(-2px);
+}
+
+.ctf-stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--clr-primary);
+    line-height: 1;
+}
+
+.ctf-stat-label {
+    font-size: 14px;
+    color: var(--clr-secondary);
+    margin-top: 8px;
+}
+
+/* ===========================
+   Tables
+   =========================== */
+.ctf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.ctf-table th,
+.ctf-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid var(--clr-border);
+}
+
+.ctf-table th {
+    background: var(--clr-accent);
+    color: var(--clr-primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.ctf-table tbody tr:nth-child(even) {
+    background: var(--clr-light);
+}
+
+.ctf-table tbody tr:hover {
+    background: #f5f1e8;
+}
+
+.ctf-table code {
+    background: #e7e3df;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--clr-tertiary);
+}
+
+/* ===========================
+   Badges
+   =========================== */
+.ctf-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--clr-light);
+    border: 1px solid var(--clr-border);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--clr-primary);
+    text-transform: uppercase;
+}
+
+.ctf-badge-pro {
+    background: var(--clr-accent);
+    border-color: var(--clr-accent);
+    color: var(--clr-primary);
+}
+
+.ctf-badge-platform-acf {
+    background: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+.ctf-badge-platform-pods {
+    background: #5d9f52;
+    color: #fff;
+    border-color: #5d9f52;
+}
+
+.ctf-badge-platform-toolset {
+    background: #c4302b;
+    color: #fff;
+    border-color: #c4302b;
+}
+
+.ctf-badge-platform-metabox {
+    background: #ff6b6b;
+    color: #fff;
+    border-color: #ff6b6b;
+}
+
+.ctf-badge-platform-jetengine {
+    background: #7c3aed;
+    color: #fff;
+    border-color: #7c3aed;
+}
+
+.ctf-badge-platform-native {
+    background: #464646;
+    color: #fff;
+    border-color: #464646;
+}
+
+/* ===========================
+   Notices
+   =========================== */
+.ctf-notice {
+    padding: 16px 20px;
+    border-radius: 6px;
+    border-left: 4px solid;
+    margin: 20px 0;
+}
+
+.ctf-notice p {
+    margin: 0;
+}
+
+.ctf-notice-success {
+    background: var(--clr-success-bg);
+    border-color: var(--clr-success);
+    color: var(--clr-success);
+}
+
+.ctf-notice-error {
+    background: var(--clr-error-bg);
+    border-color: var(--clr-error);
+    color: var(--clr-error);
+}
+
+.ctf-notice-warning {
+    background: var(--clr-warning-bg);
+    border-color: var(--clr-warning);
+    color: #92400e;
+}
+
+.ctf-notice-info {
+    background: var(--clr-info-bg);
+    border-color: var(--clr-info);
+    color: #1e40af;
+}
+
+/* ===========================
+   Progress Indicator
+   =========================== */
+.ctf-progress {
+    margin: 20px 0;
+}
+
+.ctf-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--clr-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.ctf-progress-fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--clr-accent) 0%, var(--clr-btn-hover) 100%);
+    animation: progress-animation 2s ease-in-out infinite;
+}
+
+@keyframes progress-animation {
+    0% { width: 0; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+.ctf-progress-message {
+    font-size: 14px;
+    color: var(--clr-secondary);
+    text-align: center;
+}
+
+/* ===========================
+   Platform Cards
+   =========================== */
+.ctf-platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--sp-4);
+}
+
+.ctf-platform-card {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+    background: var(--clr-light);
+    border-radius: var(--rad-border-radius);
+    border: 1px solid var(--clr-border);
+}
+
+.ctf-platform-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-accent);
+    border-radius: 50%;
+}
+
+.ctf-platform-icon .dashicons {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    color: var(--clr-primary);
+}
+
+.ctf-platform-info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+
+.ctf-platform-version {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: var(--clr-txt-muted);
+}
+
+/* ===========================
+   Action Cards
+   =========================== */
+.ctf-action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--sp-5);
+}
+
+.ctf-action-card {
+    display: block;
+    padding: var(--sp-6);
+    background: var(--clr-light);
+    border-radius: var(--rad-border-radius);
+    border: 2px solid transparent;
+    text-decoration: none;
+    transition: var(--jimr-transition-normal);
+}
+
+.ctf-action-card:hover {
+    border-color: var(--clr-accent);
+    box-shadow: var(--clr-shadow-md);
+    transform: translateY(-2px);
+}
+
+.ctf-action-card .dashicons {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    color: var(--clr-accent);
+    margin-bottom: 12px;
+}
+
+.ctf-action-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+
+.ctf-action-card p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--clr-secondary);
+}
+
+/* ===========================
+   Report Format Options
+   =========================== */
+.ctf-report-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--sp-4);
+}
+
+.ctf-report-format-option {
+    display: block;
+    cursor: pointer;
+}
+
+.ctf-report-format-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.ctf-format-card {
+    padding: var(--sp-5);
+    background: var(--clr-light);
+    border: 2px solid var(--clr-border);
+    border-radius: var(--rad-border-radius);
+    text-align: center;
+    transition: var(--jimr-transition-fast);
+}
+
+.ctf-report-format-option input[type="radio"]:checked + .ctf-format-card {
+    border-color: var(--clr-accent);
+    background: #fffbf0;
+}
+
+.ctf-format-card .dashicons {
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    color: var(--clr-accent);
+    margin-bottom: 12px;
+}
+
+.ctf-format-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+
+.ctf-format-card p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--clr-secondary);
+}
+
+/* ===========================
+   Status Indicators
+   =========================== */
+.ctf-status-active {
+    color: var(--clr-success);
+    font-weight: 600;
+}
+
+.ctf-status-inactive {
+    color: var(--clr-txt-muted);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 768px) {
+    .ctf-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctf-action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctf-platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctf-panel {
+        padding: var(--sp-5);
+    }
+
+    .ctf-btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ctf-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
