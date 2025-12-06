@@ -20,9 +20,10 @@ $cpts = $cached_data !== false ? $cached_data['cpts'] : [];
     <div class="ctf-forge-header-section">
         <div class="ctf-forge-title-container">
             <h1 class="ctf-forge-title">Custom Type Forge</h1>
-            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
         </div>
     </div>
+
+    <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
 
     <div class="ctf-container">
 

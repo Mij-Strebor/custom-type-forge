@@ -21,36 +21,45 @@ $cache_expiration = $analyzer->get_cache_expiration();
     <div class="ctf-forge-header-section">
         <div class="ctf-forge-title-container">
             <h1 class="ctf-forge-title">Custom Type Forge</h1>
-            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
         </div>
     </div>
+
+    <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
 
     <div class="ctf-container">
 
         <!-- Quick Stats -->
         <div class="ctf-stats-grid">
-            <div class="ctf-stat-card">
-                <div class="ctf-stat-number" id="stat-cpts">
-                    <?php echo $has_cache ? count($cached_data['cpts']) : '—'; ?>
-                </div>
+            <div class="ctf-stat-card <?php echo !$has_cache ? 'ctf-stat-collapsed' : ''; ?>">
+                <?php if ($has_cache): ?>
+                    <div class="ctf-stat-number" id="stat-cpts">
+                        <?php echo count($cached_data['cpts']); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="ctf-stat-label">Custom Post Types</div>
             </div>
-            <div class="ctf-stat-card">
-                <div class="ctf-stat-number" id="stat-field-groups">
-                    <?php echo $has_cache ? count($cached_data['field_groups']) : '—'; ?>
-                </div>
+            <div class="ctf-stat-card <?php echo !$has_cache ? 'ctf-stat-collapsed' : ''; ?>">
+                <?php if ($has_cache): ?>
+                    <div class="ctf-stat-number" id="stat-field-groups">
+                        <?php echo count($cached_data['field_groups']); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="ctf-stat-label">Field Groups</div>
             </div>
-            <div class="ctf-stat-card">
-                <div class="ctf-stat-number" id="stat-platforms">
-                    <?php echo $has_cache ? count($cached_data['platforms_detected']) : '—'; ?>
-                </div>
+            <div class="ctf-stat-card <?php echo !$has_cache ? 'ctf-stat-collapsed' : ''; ?>">
+                <?php if ($has_cache): ?>
+                    <div class="ctf-stat-number" id="stat-platforms">
+                        <?php echo count($cached_data['platforms_detected']); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="ctf-stat-label">Platforms Detected</div>
             </div>
-            <div class="ctf-stat-card">
-                <div class="ctf-stat-number" id="stat-relationships">
-                    <?php echo ($has_cache && isset($cached_data['relationships']['summary']['total_cpt_relationships'])) ? $cached_data['relationships']['summary']['total_cpt_relationships'] : '—'; ?>
-                </div>
+            <div class="ctf-stat-card <?php echo !$has_cache ? 'ctf-stat-collapsed' : ''; ?>">
+                <?php if ($has_cache): ?>
+                    <div class="ctf-stat-number" id="stat-relationships">
+                        <?php echo isset($cached_data['relationships']['summary']['total_cpt_relationships']) ? $cached_data['relationships']['summary']['total_cpt_relationships'] : 0; ?>
+                    </div>
+                <?php endif; ?>
                 <div class="ctf-stat-label">Relationships</div>
             </div>
         </div>

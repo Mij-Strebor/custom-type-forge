@@ -243,6 +243,15 @@
     margin-top: 8px;
 }
 
+/* Collapsed state (no data) */
+.ctf-stat-card.ctf-stat-collapsed {
+    min-height: auto;
+}
+
+.ctf-stat-card.ctf-stat-collapsed .ctf-stat-label {
+    margin-top: 0;
+}
+
 /* ===========================
    Tables
    =========================== */

@@ -12,70 +12,66 @@
 .ctf-forge-header-section {
     position: relative;
     width: 100%;
-    height: 50vh;
-    min-height: 400px;
-    max-height: 600px;
+    height: 400px; /* Fixed height matching FSF */
     background-image: url('../images/forge-banner.png');
     background-size: cover;
     background-position: 66% center; /* Right third positioning */
     background-repeat: no-repeat;
-    margin: -20px 0 40px -20px;
+    margin: -20px 0 0 -20px;
     overflow: hidden;
 }
 
-/* Multi-layer gradient overlays for depth */
+/* Top fade to black */
 .ctf-forge-header-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: 120px;
     background: linear-gradient(
         to bottom,
-        rgba(61, 47, 31, 0.4) 0%,
-        rgba(61, 47, 31, 0.2) 40%,
-        rgba(61, 47, 31, 0.6) 100%
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        transparent 100%
     );
     z-index: 1;
 }
 
-/* Additional brown overlay for warmth */
+/* Bottom fade to cream background */
 .ctf-forge-header-section::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: 120px;
     background: linear-gradient(
-        135deg,
-        rgba(134, 64, 14, 0.3) 0%,
-        rgba(61, 47, 31, 0.2) 50%,
+        to top,
+        #faf6f0 0%,
+        rgba(250, 246, 240, 0.8) 30%,
         transparent 100%
     );
-    z-index: 2;
+    z-index: 1;
 }
 
 /* Title Container */
 .ctf-forge-title-container {
     position: absolute;
-    top: 16vh;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    top: 50%;
+    left: 186px; /* 186px from left margin as specified */
+    transform: translateY(-50%);
+    text-align: left;
     z-index: 3;
-    max-width: 1280px;
-    padding: 0 20px;
 }
 
 /* Main Title with Cinzel Font */
 .ctf-forge-title {
     font-family: 'Cinzel', serif;
-    font-size: 48px;
+    font-size: 32px; /* Changed from 48px to 32px */
     font-weight: 700;
     line-height: 1.2;
-    margin: 0 0 12px 0;
+    margin: 0;
 
     /* Multi-directional radial gradient (bright yellow → deep orange) */
     background: radial-gradient(
@@ -103,15 +99,14 @@
     filter: brightness(1.1);
 }
 
-/* Version Text */
+/* Version Text - now below banner in clear area */
 .ctf-forge-version {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 14px;
     font-weight: 400;
     font-style: italic;
     color: #d4c5a9; /* Light tan */
-    margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    margin: 16px 0 0 186px; /* Same left margin as title */
     letter-spacing: 0.5px;
 }
 
