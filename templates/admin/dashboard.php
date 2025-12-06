@@ -17,9 +17,15 @@ $cache_expiration = $analyzer->get_cache_expiration();
 ?>
 
 <div class="wrap ctf-admin-page">
+    <!-- Forge Header Banner -->
+    <div class="ctf-forge-header-section">
+        <div class="ctf-forge-title-container">
+            <h1 class="ctf-forge-title">Custom Type Forge</h1>
+            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
+        </div>
+    </div>
+
     <div class="ctf-container">
-        <h1 class="ctf-page-title">Custom Type Forge</h1>
-        <p class="ctf-page-subtitle">Comprehensive analyzer for Custom Post Types and Advanced Custom Fields</p>
 
         <!-- Quick Stats -->
         <div class="ctf-stats-grid">

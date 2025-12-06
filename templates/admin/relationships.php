@@ -16,9 +16,15 @@ $relationships = $cached_data !== false && isset($cached_data['relationships']) 
 ?>
 
 <div class="wrap ctf-admin-page">
+    <!-- Forge Header Banner -->
+    <div class="ctf-forge-header-section">
+        <div class="ctf-forge-title-container">
+            <h1 class="ctf-forge-title">Custom Type Forge</h1>
+            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
+        </div>
+    </div>
+
     <div class="ctf-container">
-        <h1 class="ctf-page-title">Relationships</h1>
-        <p class="ctf-page-subtitle">Connections between post types, fields, and taxonomies</p>
 
         <?php if (empty($relationships)): ?>
             <div class="ctf-notice ctf-notice-warning">

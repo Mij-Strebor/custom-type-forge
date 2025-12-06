@@ -16,9 +16,15 @@ $cpts = $cached_data !== false ? $cached_data['cpts'] : [];
 ?>
 
 <div class="wrap ctf-admin-page">
+    <!-- Forge Header Banner -->
+    <div class="ctf-forge-header-section">
+        <div class="ctf-forge-title-container">
+            <h1 class="ctf-forge-title">Custom Type Forge</h1>
+            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
+        </div>
+    </div>
+
     <div class="ctf-container">
-        <h1 class="ctf-page-title">Custom Post Types</h1>
-        <p class="ctf-page-subtitle">All custom post types detected on this site</p>
 
         <?php if (empty($cpts)): ?>
             <div class="ctf-notice ctf-notice-warning">

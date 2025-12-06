@@ -162,9 +162,16 @@ class Custom_Type_Forge {
 
         // Enqueue styles
         wp_enqueue_style(
+            'ctf-forge-header',
+            CTF_PLUGIN_URL . 'assets/css/forge-header.css',
+            [],
+            CTF_VERSION
+        );
+
+        wp_enqueue_style(
             'ctf-admin-styles',
             CTF_PLUGIN_URL . 'assets/css/admin-styles.css',
-            [],
+            ['ctf-forge-header'],
             CTF_VERSION
         );
 

@@ -1,0 +1,143 @@
+/**
+ * Custom Type Forge - Forge Header Styles
+ * Banner with Cinzel title
+ *
+ * @package CustomTypeForge
+ */
+
+/* Import Cinzel font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+/* Forge Header Section */
+.ctf-forge-header-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    max-height: 600px;
+    background-image: url('../images/forge-banner.png');
+    background-size: cover;
+    background-position: 66% center; /* Right third positioning */
+    background-repeat: no-repeat;
+    margin: -20px 0 40px -20px;
+    overflow: hidden;
+}
+
+/* Multi-layer gradient overlays for depth */
+.ctf-forge-header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(61, 47, 31, 0.4) 0%,
+        rgba(61, 47, 31, 0.2) 40%,
+        rgba(61, 47, 31, 0.6) 100%
+    );
+    z-index: 1;
+}
+
+/* Additional brown overlay for warmth */
+.ctf-forge-header-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(134, 64, 14, 0.3) 0%,
+        rgba(61, 47, 31, 0.2) 50%,
+        transparent 100%
+    );
+    z-index: 2;
+}
+
+/* Title Container */
+.ctf-forge-title-container {
+    position: absolute;
+    top: 16vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    max-width: 1280px;
+    padding: 0 20px;
+}
+
+/* Main Title with Cinzel Font */
+.ctf-forge-title {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+
+    /* Multi-directional radial gradient (bright yellow → deep orange) */
+    background: radial-gradient(
+        circle at 30% 50%,
+        #ffeb3b 0%,
+        #ffc107 25%,
+        #ff9800 50%,
+        #ff5722 75%,
+        #d84315 100%
+    );
+
+    /* Top-to-bottom fade overlay */
+    background-blend-mode: multiply;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* Glow effects for forge heat */
+    text-shadow:
+        0 0 30px rgba(255, 235, 59, 0.8),
+        0 0 60px rgba(255, 152, 0, 0.6),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+
+    /* Additional filter for brightness */
+    filter: brightness(1.1);
+}
+
+/* Version Text */
+.ctf-forge-version {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    color: #d4c5a9; /* Light tan */
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ctf-forge-header-section {
+        height: 40vh;
+        min-height: 300px;
+        margin-left: 0;
+    }
+
+    .ctf-forge-title {
+        font-size: 32px;
+    }
+
+    .ctf-forge-title-container {
+        top: 12vh;
+    }
+}
+
+@media (min-width: 1920px) {
+    .ctf-forge-title {
+        font-size: 56px;
+    }
+
+    .ctf-forge-version {
+        font-size: 16px;
+    }
+}

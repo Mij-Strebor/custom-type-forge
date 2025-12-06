@@ -15,9 +15,15 @@ $has_cache = $analyzer->has_cache();
 ?>
 
 <div class="wrap ctf-admin-page">
+    <!-- Forge Header Banner -->
+    <div class="ctf-forge-header-section">
+        <div class="ctf-forge-title-container">
+            <h1 class="ctf-forge-title">Custom Type Forge</h1>
+            <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
+        </div>
+    </div>
+
     <div class="ctf-container">
-        <h1 class="ctf-page-title">Generate Reports</h1>
-        <p class="ctf-page-subtitle">Export comprehensive documentation in multiple formats</p>
 
         <?php if (!$has_cache): ?>
             <div class="ctf-notice ctf-notice-warning">
