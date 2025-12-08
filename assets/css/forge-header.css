@@ -112,19 +112,19 @@
  * Header Section Container
  *
  * Positions the header content above the background with proper z-index.
- * Centered alignment matches body panels. Top padding positions H1 at top third.
+ * 1320px width with 10px left margin for header image alignment.
  */
 .ctf-header-section {
     position: relative !important;
     z-index: 1 !important;           /* Above ::before background */
-    padding-top: 16vh !important;    /* Position H1 at top third (~33% of 50vh header) */
+    padding-top: 196px !important;   /* Position H1 centered on banner (196px from top) */
     padding-left: 0 !important;      /* Remove left padding to fix alignment */
     padding-right: 0 !important;     /* Remove right padding to fix alignment */
-    margin: 0 auto !important;       /* Center the container */
-    margin-bottom: 0 !important;     /* No bottom margin */
+    margin: 0 0 0 10px !important;   /* 10px left margin for header */
+    margin-bottom: 120px !important; /* Space below header for version and content */
     min-height: 520px !important;    /* Ensures consistent spacing on small screens */
-    width: 1280px !important;        /* Fixed width to match body panels */
-    max-width: 100% !important;      /* Responsive on small screens */
+    width: 1320px !important;        /* Header image width */
+    max-width: calc(100% - 10px) !important; /* Responsive accounting for left margin */
     box-sizing: border-box !important;
 }
 
@@ -164,9 +164,9 @@
     font-family: 'Cinzel', serif !important;
     font-size: 32px !important;
     font-weight: 700 !important;
-    margin-bottom: var(--sp-6) !important;
+    margin-bottom: 0 !important;
     letter-spacing: -0.5px !important;
-    padding-left: 140px !important; /* Left indent for visual balance */
+    padding-left: 182px !important; /* 182px from left edge */
 }
 
 /**
@@ -174,10 +174,15 @@
  *
  * Ensures the main container sits properly above the
  * background layer in the stacking context.
+ * Centered with proper spacing from header.
  */
 .ctf-container {
     position: relative !important;
     z-index: 1 !important;  /* Above ::before background */
+    width: 1280px !important; /* Body width */
+    max-width: 100% !important;
+    margin: 0 auto !important; /* Centered under header */
+    padding: 0 20px !important; /* Side padding */
 }
 
 /* ==========================================================================
@@ -187,7 +192,7 @@
 /**
  * Version Info Positioning
  *
- * Positioned between header and main content in the faded area.
+ * Positioned below header at 10px left margin.
  */
 .ctf-version-text {
     font-family: 'Inter', sans-serif !important;
@@ -195,9 +200,9 @@
     font-size: 14px !important;
     font-style: italic !important;
     color: rgb(60, 67, 74) !important;
-    text-align: center !important;
-    margin: -15vh auto 20px !important;
-    max-width: 1280px !important;
+    text-align: left !important;
+    margin: -80px 0 60px 10px !important; /* -80px to move up, 60px bottom space, 10px left */
+    max-width: 1320px !important;
     position: relative !important;
     z-index: 2 !important;
 }
