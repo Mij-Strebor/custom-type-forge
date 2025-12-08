@@ -58,8 +58,9 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 10px;     /* 10px left margin for header image */
+    width: 1320px;  /* Fixed width for header image */
+    max-width: calc(100% - 10px); /* Responsive accounting for left margin */
     height: 50vh;   /* 50% viewport height */
     min-height: 500px;  /* Ensure enough space for panels */
     z-index: 0;     /* Behind all content */
