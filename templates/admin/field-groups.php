@@ -16,14 +16,15 @@ $field_groups = $cached_data !== false ? $cached_data['field_groups'] : [];
 ?>
 
 <div class="wrap ctf-admin-page">
-    <!-- Forge Header Banner -->
-    <div class="ctf-forge-header-section">
-        <div class="ctf-forge-title-container">
-            <h1 class="ctf-forge-title">Custom Type Forge</h1>
-        </div>
+    <!-- Forge Header with Title -->
+    <div class="ctf-header-section">
+        <h1>Custom Type Forge</h1>
     </div>
 
-    <p class="ctf-forge-version">Version <?php echo CTF_VERSION; ?></p>
+    <!-- Version Info (between header and main content) -->
+    <p class="ctf-version-text">
+        Version <?php echo CTF_VERSION; ?>
+    </p>
 
     <div class="ctf-container">
 

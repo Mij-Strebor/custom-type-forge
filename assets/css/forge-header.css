@@ -1,138 +1,221 @@
 /**
- * Custom Type Forge - Forge Header Styles
- * Banner with Cinzel title
+ * Custom Type Forge - Integrated Forge Header Styling
+ *
+ * Creates a seamless, integrated header with the forge background image
+ * that fades naturally into the page background. Multiple gradient overlays
+ * ensure soft transitions with no hard boundaries.
  *
  * @package CustomTypeForge
+ * @version 1.0.0
+ * @author Jim R (JimRForge)
+ *
+ * Design Philosophy:
+ * - Warm, inviting forge atmosphere reinforcing brand metaphor
+ * - Soft, gradual transitions with no hard edges
+ * - Completely integrated with page background
+ * - Enhanced title visibility with layered text shadows
  */
 
-/* Import Cinzel font from Google Fonts */
+/* ==========================================================================
+   FONT IMPORTS
+   ========================================================================== */
+
+/**
+ * Cinzel Font - Header Title Typography
+ *
+ * Google Fonts import for Cinzel 700 weight used in main heading.
+ */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
 
-/* Forge Header Section */
-.ctf-forge-header-section {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Fixed height matching FSF */
-    background-image: url('../images/forge-banner.png');
-    background-size: cover;
-    background-position: 66% center; /* Right third positioning */
-    background-repeat: no-repeat;
-    margin: -20px 0 0 -20px;
-    overflow: hidden;
+/* ==========================================================================
+   INTEGRATED FORGE BACKGROUND HEADER
+   ========================================================================== */
+
+/**
+ * Main Page Wrapper - Background Integration Setup
+ *
+ * Sets up the main wrapper for positioning the integrated forge background.
+ * The position relative allows the ::before pseudo-element to be absolutely
+ * positioned within it.
+ */
+.wrap {
+    position: relative !important;
 }
 
-/* Top fade to black */
-.ctf-forge-header-section::before {
+/**
+ * Forge Header Background Layer
+ *
+ * Uses the custom Photoshop composite banner with smooth bottom fade
+ * and subtle texture variation to eliminate the sharp dividing line.
+ *
+ * Layout Strategy:
+ * - Custom forge-banner.png with integrated left-to-right gradient
+ * - Smooth bottom fade to page background (no sharp line)
+ * - Subtle noise texture overlay for visual interest in solid areas
+ * - Top fade for seamless integration
+ */
+.wrap::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 120px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.5) 50%,
-        transparent 100%
-    );
-    z-index: 1;
+    height: 50vh;   /* 50% viewport height */
+    min-height: 500px;  /* Ensure enough space for panels */
+    z-index: 0;     /* Behind all content */
+
+    /* Multi-layer gradient stack for soft, natural fade */
+    background-image:
+        /* Layer 1: Subtle noise texture for visual interest in brown areas */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="0"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.03"/></svg>'),
+        /* Layer 2: Top fade from page background (very subtle) */
+        linear-gradient(
+            to bottom,
+            rgba(250, 246, 240, 0.9) 0%,    /* Nearly solid page bg */
+            rgba(250, 246, 240, 0.3) 8%,    /* Quick fade */
+            transparent 15%                  /* Reveal banner */
+        ),
+        /* Layer 3: Bottom fade - SHORT like top fade (echoes top transition) */
+        linear-gradient(
+            to bottom,
+            transparent 0%,                  /* Banner fully visible */
+            transparent 82%,                 /* Banner visible through most of height */
+            rgba(250, 246, 240, 0.2) 86%,   /* Gentle start */
+            rgba(250, 246, 240, 0.5) 91%,   /* Increase opacity */
+            rgba(250, 246, 240, 0.8) 96%,   /* Nearly solid */
+            rgba(250, 246, 240, 1) 100%     /* Solid page bg at bottom */
+        ),
+        /* Layer 4: The custom forge banner (Photoshop composite) */
+        url('../images/forge-banner.png');
+
+    /* Positioning strategy */
+    background-size:
+        300px 300px,    /* Layer 1: Noise texture (tiled) */
+        cover,          /* Layer 2: Top fade */
+        cover,          /* Layer 3: Bottom fade */
+        cover;          /* Layer 4: Banner fills entire area */
+
+    background-position:
+        0 0,            /* Layer 1: Noise from top-left (tiled) */
+        center top,     /* Layer 2: Top fade */
+        center bottom,  /* Layer 3: Bottom fade */
+        center top;     /* Layer 4: Banner centered */
+
+    background-repeat:
+        repeat,         /* Layer 1: Noise repeats */
+        no-repeat,      /* Layer 2: Top fade */
+        no-repeat,      /* Layer 3: Bottom fade */
+        no-repeat;      /* Layer 4: Banner */
 }
 
-/* Bottom fade to cream background */
-.ctf-forge-header-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(
-        to top,
-        #faf6f0 0%,
-        rgba(250, 246, 240, 0.8) 30%,
-        transparent 100%
-    );
-    z-index: 1;
+/**
+ * Header Section Container
+ *
+ * Positions the header content above the background with proper z-index.
+ * Centered alignment matches body panels. Top padding positions H1 at top third.
+ */
+.ctf-header-section {
+    position: relative !important;
+    z-index: 1 !important;           /* Above ::before background */
+    padding-top: 16vh !important;    /* Position H1 at top third (~33% of 50vh header) */
+    padding-left: 0 !important;      /* Remove left padding to fix alignment */
+    padding-right: 0 !important;     /* Remove right padding to fix alignment */
+    margin: 0 auto !important;       /* Center the container */
+    margin-bottom: 0 !important;     /* No bottom margin */
+    min-height: 520px !important;    /* Ensures consistent spacing on small screens */
+    width: 1280px !important;        /* Fixed width to match body panels */
+    max-width: 100% !important;      /* Responsive on small screens */
+    box-sizing: border-box !important;
 }
 
-/* Title Container */
-.ctf-forge-title-container {
-    position: absolute;
-    top: 50%;
-    left: 186px; /* 186px from left margin as specified */
-    transform: translateY(-50%);
-    text-align: left;
-    z-index: 3;
-}
-
-/* Main Title with Cinzel Font */
-.ctf-forge-title {
-    font-family: 'Cinzel', serif;
-    font-size: 32px; /* Changed from 48px to 32px */
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0;
-
-    /* Multi-directional radial gradient (bright yellow → deep orange) */
+/**
+ * H1 Title - Enhanced Flame Gradient (Multi-Directional)
+ *
+ * Dramatic gradient with BOTH horizontal (orange→yellow) AND vertical (bright→darker)
+ * fades mimicking forge flames. Stronger color contrast for maximum impact.
+ *
+ * Gradient strategy: Radial from top-left (bright yellow) to bottom-right (deep orange)
+ */
+.ctf-header-section h1 {
+    /* STRONGER multi-directional gradient - radial for top-to-bottom + left-to-right */
     background: radial-gradient(
-        circle at 30% 50%,
-        #ffeb3b 0%,
-        #ffc107 25%,
-        #ff9800 50%,
-        #ff5722 75%,
-        #d84315 100%
-    );
+        ellipse at top left,
+        #FFE66D 0%,      /* Bright yellow at top-left (hottest part) */
+        #FFC857 25%,     /* Golden yellow */
+        #FFB84D 50%,     /* Medium orange (middle) */
+        #FF8C42 75%,     /* Deep forge orange */
+        #E67332 100%     /* Even deeper orange at bottom-right (cooler) */
+    ) !important;
 
-    /* Top-to-bottom fade overlay */
-    background-blend-mode: multiply;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    /* Clip gradient to text */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 
-    /* Glow effects for forge heat */
-    text-shadow:
-        0 0 30px rgba(255, 235, 59, 0.8),
-        0 0 60px rgba(255, 152, 0, 0.6),
-        0 4px 8px rgba(0, 0, 0, 0.4);
+    /* Fallback color for browsers without gradient support */
+    color: #FFB84D !important;
 
-    /* Additional filter for brightness */
-    filter: brightness(1.1);
+    /* STRONGER glow effects with more intensity */
+    filter: drop-shadow(0 0 30px rgba(255, 230, 109, 0.8))   /* Brighter yellow glow */
+            drop-shadow(0 0 15px rgba(255, 140, 66, 0.6))    /* Orange glow layer */
+            drop-shadow(0 3px 6px rgba(0, 0, 0, 0.95))       /* Strong black shadow */
+            drop-shadow(0 6px 15px rgba(0, 0, 0, 0.8)) !important; /* Deep shadow */
+
+    font-family: 'Cinzel', serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--sp-6) !important;
+    letter-spacing: -0.5px !important;
+    padding-left: 140px !important; /* Left indent for visual balance */
 }
 
-/* Version Text - now below banner in clear area */
-.ctf-forge-version {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    font-style: italic;
-    color: #d4c5a9; /* Light tan */
-    margin: 16px 0 0 186px; /* Same left margin as title */
-    letter-spacing: 0.5px;
+/**
+ * Main Content Container - Proper Z-Index Stacking
+ *
+ * Ensures the main container sits properly above the
+ * background layer in the stacking context.
+ */
+.ctf-container {
+    position: relative !important;
+    z-index: 1 !important;  /* Above ::before background */
+}
+
+/* ==========================================================================
+   END OF FORGE HEADER INTEGRATION
+   ========================================================================== */
+
+/**
+ * Version Info Positioning
+ *
+ * Positioned between header and main content in the faded area.
+ */
+.ctf-version-text {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    font-style: italic !important;
+    color: rgb(60, 67, 74) !important;
+    text-align: center !important;
+    margin: -15vh auto 20px !important;
+    max-width: 1280px !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .ctf-forge-header-section {
-        height: 40vh;
-        min-height: 300px;
-        margin-left: 0;
+    .ctf-header-section h1 {
+        font-size: 28px !important;
+        padding-left: 40px !important;
     }
 
-    .ctf-forge-title {
-        font-size: 32px;
-    }
-
-    .ctf-forge-title-container {
-        top: 12vh;
+    .ctf-version-text {
+        margin: -10vh auto 20px !important;
     }
 }
 
 @media (min-width: 1920px) {
-    .ctf-forge-title {
-        font-size: 56px;
-    }
-
-    .ctf-forge-version {
-        font-size: 16px;
+    .ctf-header-section h1 {
+        font-size: 36px !important;
     }
 }
