@@ -58,9 +58,9 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 10px;     /* 10px left margin for header image */
+    left: 20px;     /* 20px left margin for header image */
     width: 1320px;  /* Fixed width for header image */
-    max-width: calc(100% - 10px); /* Responsive accounting for left margin */
+    max-width: calc(100% - 20px); /* Responsive accounting for left margin */
     height: 50vh;   /* 50% viewport height */
     min-height: 500px;  /* Ensure enough space for panels */
     z-index: 0;     /* Behind all content */
@@ -121,11 +121,11 @@
     padding-top: 196px !important;   /* Position H1 centered on banner (196px from top) */
     padding-left: 0 !important;      /* Remove left padding to fix alignment */
     padding-right: 0 !important;     /* Remove right padding to fix alignment */
-    margin: 0 0 0 10px !important;   /* 10px left margin for header */
+    margin: 0 0 0 20px !important;   /* 20px left margin for header */
     margin-bottom: 120px !important; /* Space below header for version and content */
     min-height: 520px !important;    /* Ensures consistent spacing on small screens */
     width: 1320px !important;        /* Header image width */
-    max-width: calc(100% - 10px) !important; /* Responsive accounting for left margin */
+    max-width: calc(100% - 20px) !important; /* Responsive accounting for left margin */
     box-sizing: border-box !important;
 }
 
@@ -175,14 +175,14 @@
  *
  * Ensures the main container sits properly above the
  * background layer in the stacking context.
- * Centered with proper spacing from header.
+ * Left margin of 40px centers the 1280px body under the 1320px header with 20px margins.
  */
 .ctf-container {
     position: relative !important;
     z-index: 1 !important;  /* Above ::before background */
     width: 1280px !important; /* Body width */
-    max-width: 100% !important;
-    margin: 0 auto !important; /* Centered under header */
+    max-width: calc(100% - 40px) !important;
+    margin: 0 0 0 40px !important; /* 40px left margin to center under header */
     padding: 0 20px !important; /* Side padding */
 }
 
@@ -193,7 +193,7 @@
 /**
  * Version Info Positioning
  *
- * Positioned below header at 10px left margin.
+ * Positioned below header at 20px left margin (matching header).
  */
 .ctf-version-text {
     font-family: 'Inter', sans-serif !important;
@@ -202,7 +202,7 @@
     font-style: italic !important;
     color: rgb(60, 67, 74) !important;
     text-align: left !important;
-    margin: -80px 0 60px 10px !important; /* -80px to move up, 60px bottom space, 10px left */
+    margin: -80px 0 60px 20px !important; /* -80px to move up, 60px bottom space, 20px left */
     max-width: 1320px !important;
     position: relative !important;
     z-index: 2 !important;
