@@ -16,7 +16,7 @@
 - **Plugin name:** Custom Type Forge
 - **Acronym / folder:** `ctf` → `E:\projects\plugins\ctf`
 - **Version:** v1.0.0
-- **GitHub:** (not yet published)
+- **GitHub:** https://github.com/Mij-Strebor/custom-type-forge
 - **Text domain:** `custom-type-forge`
 - **Admin page slug:** `custom-type-forge`
 - **Required capability:** `manage_options`
